@@ -1,0 +1,1 @@
+enum CResource {GOLD = 0, IRON, COOKIES, COUNT_OF_RECOURCES};
