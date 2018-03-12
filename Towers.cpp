@@ -1,61 +1,44 @@
 #include <vector>
 
 #include "AllClasses.h"
+#include "Towers.h"
 
-enum CTypeOfComponent {COMP_MAIN, COMP_HEALTH, COMP_POWER,COMP_ACTIVE_SKILL,
-		COMP_PASSIVE_SKILL, COMP_TARGET_SKILL};
-
-class ITower {
-public:
-	std::vector<IComponent*> components;
-	virtual ~ITower() {}
-};
-
-class IComponent {
-public:
-	virtual CTypeOfComponent GetType() = 0;
-	virtual ~IComponent() {}
-	//virtual void Update(double dt) = 0;
-};
-
-class IFactory {
-public:
-	virtual ~IFactory() {}
-	virtual ITower* Create() = 0;
-};
+ITower::~ITower() {}
+IComponent::~IComponent() {}
+IFactory::~IFactory() {}
 
 //-----------------------------------------------------------------------
 
-class IComponentMain : IComponent {
+class IComponentMain : public IComponent {
 public:
 	virtual CTypeOfComponent GetType() { return COMP_MAIN; }
 };
 
-class IComponentHealth : IComponent{
+class IComponentHealth : public IComponent{
 public:
 	virtual CTypeOfComponent GetType() { return COMP_HEALTH; }
 	//virtual void TakeDamage(int dmg) = 0;
 };
 
-class IComponentPower : IComponent {
+class IComponentPower : public IComponent {
 public:
 	virtual CTypeOfComponent GetType() { return COMP_POWER; }
 	virtual bool IsPowered() = 0;
 };
 
-class IComponentTargetSkill : IComponent {
+class IComponentTargetSkill : public IComponent {
 public:
 	virtual CTypeOfComponent GetType() { return COMP_TARGET_SKILL; }
 
 };
 
-class IComponentActiveSkill : IComponent {
+class IComponentActiveSkill : public IComponent {
 public:
 	virtual CTypeOfComponent GetType() { return COMP_ACTIVE_SKILL; }
 
 };
 
-class IComponentPassiveSkill : IComponent {
+class IComponentPassiveSkill : public IComponent {
 public:
 	virtual CTypeOfComponent GetType() { return COMP_PASSIVE_SKILL; }
 
@@ -63,7 +46,7 @@ public:
 
 //-----------------------------------------------------------------------
 
-class CComponentHealth : IComponentHealth {
+class CComponentHealth : public IComponentHealth {
 private:
 	int _MAX_HP;
 	int _hp;
@@ -75,7 +58,7 @@ public:
 
 };
 
-class CComponentMain : IComponentMain {
+class CComponentMain : public IComponentMain {
 private:
 	CPoint* _point;
 	CPlayer* _player;
@@ -86,7 +69,7 @@ public:
 	}
 };
 
-class CComponentTargetAttack : IComponentTargetSkill {
+class CComponentTargetAttack : public IComponentTargetSkill {
 private:
 	int _DAMAGE;
 	int _RADIUS;
@@ -101,14 +84,14 @@ public:
 	}
 };
 
-class CComponentPower : IComponentPower {
+class CComponentPower : public IComponentPower {
 public:
 	bool IsPowered() { return true; }
 };
 
 //-----------------------------------------------------------------------
 
-class CTowerNormal : ITower {
+class CTowerNormal : public ITower {
 public:
 	CComponentHealth* health;
 	CComponentMain* main;
@@ -116,21 +99,26 @@ public:
 	CComponentTargetAttack* attack;
 };
 
-class FactoryNormal : IFactory {
+/*class CFactoryNormal : public IFactory {
 private:
-	int HP = 100;
-	int DMG = 5;
-	int RADIUS = 100;
-	double ATTACK_KD = 0.5;
+	const int HP = 100;
+	const int DMG = 5;
+	const int RADIUS = 100;
+	const double ATTACK_KD = 0.5;
+};*/
 
-public:
-	ITower* Create() {
-		CTowerNormal tower;
-		tower.health = new CComponentHealth(HP);
-		tower.main = new CComponentMain(nullptr, nullptr);
-		tower.power = new CComponentPower();
-		tower.attack = new CComponentTargetAttack(DMG, RADIUS, ATTACK_KD);
+ITower* CFactoryNormal::Create() {
+	CTowerNormal* tower = new CTowerNormal;
+	tower->health = new CComponentHealth(HP);
+	tower->main = new CComponentMain(nullptr, nullptr);
+	tower->power = new CComponentPower();
+	tower->attack = new CComponentTargetAttack(DMG, RADIUS, ATTACK_KD);
 
-		tower.components.push_back(&tower.health);
-	}
-};
+	tower->components.resize(4, nullptr);
+	tower->components[0] = tower->health;
+	tower->components[1] = tower->main;
+	tower->components[2] = tower->power;
+	tower->components[3] = tower->health;
+
+	return tower;
+}
