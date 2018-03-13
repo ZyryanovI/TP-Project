@@ -48,6 +48,8 @@ public:
 
 };
 
+//------------------------------------------------------------------------
+
 class CComponentHealth : public IComponentHealth {
 private:
 	int _MAX_HP;
@@ -76,9 +78,6 @@ private:
 public:
 
 };
-
-
-//------------------------------------------------------------------------
 
 class CComponentTargetAttack : public IComponentTargetSkill {
 private:

@@ -6,7 +6,7 @@
 
 void test() {
 	IFactory* fac = new CFactoryNormal;
-	ITower* tower = fac->Create();
+	CTower* tower = fac->Create();
 	std::cout << "Done!";
 	delete fac;
 	delete tower;

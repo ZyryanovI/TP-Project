@@ -1,17 +1,14 @@
 #include "TowerComponents.h"
 
-CTypeOfComponent IComponentPosition::GetType()
-{
+CTypeOfComponent IComponentPosition::GetType() {
 	return COMP_POSITION;
 }
 
-CTypeOfComponent IComponentGraphic::GetType()
-{
+CTypeOfComponent IComponentGraphic::GetType() {
 	return COMP_GRAPHIC;
 }
 
-CTypeOfComponent IComponentAccessory::GetType()
-{
+CTypeOfComponent IComponentAccessory::GetType() {
 	return COMP_ACCESSORY;
 }
 
@@ -46,8 +43,7 @@ CComponentPosition::CComponentPosition(CPoint* position) {
 	_position = position;
 }
 
-CComponentAccessory::CComponentAccessory(CPlayer* player)
-{
+CComponentAccessory::CComponentAccessory(CPlayer* player) {
 	_player = player;
 }
 

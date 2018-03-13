@@ -20,16 +20,17 @@ public:
 	//virtual void Update(double dt) = 0;
 };
 
-class ITower {
-public:
+class CTower {
+private:
 	std::vector<IComponent*> components;
-	virtual ~ITower();
+public:
+	void AddComponent(IComponent* comp);
 };
 
 class IFactory {
 public:
 	virtual ~IFactory();
-	virtual ITower* Create() = 0;
+	virtual CTower* Create() = 0;
 };
 
 //------------------------------------------------------
@@ -45,5 +46,5 @@ private:
 	CPlayer* PLAYER = nullptr;
 
 public:
-	ITower * Create();
+	virtual CTower* Create();
 };
