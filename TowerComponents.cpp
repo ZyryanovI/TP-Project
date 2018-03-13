@@ -1,7 +1,18 @@
 #include "TowerComponents.h"
 
-CTypeOfComponent IComponentMain::GetType() {
-	return COMP_MAIN;
+CTypeOfComponent IComponentPosition::GetType()
+{
+	return COMP_POSITION;
+}
+
+CTypeOfComponent IComponentGraphic::GetType()
+{
+	return COMP_GRAPHIC;
+}
+
+CTypeOfComponent IComponentAccessory::GetType()
+{
+	return COMP_ACCESSORY;
 }
 
 CTypeOfComponent IComponentHealth::GetType() {
@@ -31,9 +42,13 @@ CComponentHealth::CComponentHealth(int max_hp) {
 	_hp = max_hp;
 }
 
-CComponentMain::CComponentMain(CPoint* point, CPlayer* player) {
+CComponentPosition::CComponentPosition(CPoint* position) {
+	_position = position;
+}
+
+CComponentAccessory::CComponentAccessory(CPlayer* player)
+{
 	_player = player;
-	_point = point;
 }
 
 CComponentTargetAttack::CComponentTargetAttack(int damage, int radius, double max_kd) {
@@ -41,4 +56,3 @@ CComponentTargetAttack::CComponentTargetAttack(int damage, int radius, double ma
 	_RADIUS = radius;
 	_MAX_KD = max_kd;
 }
-

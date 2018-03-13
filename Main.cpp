@@ -2,6 +2,7 @@
 #include "Tower.h"
 #include <assert.h>
 #include <iostream>
+#include <string>
 
 void test() {
 	IFactory* fac = new CFactoryNormal;
@@ -14,5 +15,6 @@ void test() {
 int main() {
 	test();
 
-	system("pause");
+	std::string s;
+	std::cin >> s;
 }

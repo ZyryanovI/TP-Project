@@ -16,8 +16,10 @@ IFactory::~IFactory() {}
 
 class CTowerNormal : public ITower {
 public:
-	CComponentHealth* health;
-	CComponentMain* main;
+	CComponentHealth * health;
+	CComponentAccessory* accessory;
+	CComponentPosition* position;
+	CComponentGraphic* graphic;
 	CComponentPower* power;
 	CComponentTargetAttack* attack;
 };
@@ -25,15 +27,19 @@ public:
 ITower* CFactoryNormal::Create() {
 	CTowerNormal* tower = new CTowerNormal;
 	tower->health = new CComponentHealth(HP);
-	tower->main = new CComponentMain(nullptr, nullptr);
+	tower->accessory = new CComponentAccessory(PLAYER);
+	tower->position = new CComponentPosition(POINT);
+	tower->graphic = new CComponentGraphic();
 	tower->power = new CComponentPower();
 	tower->attack = new CComponentTargetAttack(DMG, RADIUS, ATTACK_KD);
 
-	tower->components.resize(4, nullptr);
+	tower->components.resize(6, nullptr);
 	tower->components[0] = tower->health;
-	tower->components[1] = tower->main;
+	tower->components[1] = tower->accessory;
 	tower->components[2] = tower->power;
-	tower->components[3] = tower->health;
+	tower->components[3] = tower->position;
+	tower->components[4] = tower->attack;
+	tower->components[5] = tower->graphic;
 
 	return tower;
 }

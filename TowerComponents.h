@@ -1,10 +1,23 @@
-#pragma once
+﻿#pragma once
 #include "Tower.h"
 #include "AllClasses.h"
 
-class IComponentMain : public IComponent {
+class IComponentPosition : public IComponent {
 public:
 	virtual CTypeOfComponent GetType();
+
+};
+
+class IComponentGraphic : public IComponent {
+public:
+	virtual CTypeOfComponent GetType();
+
+};
+
+class IComponentAccessory : public IComponent {
+public:
+	virtual CTypeOfComponent GetType();
+
 };
 
 class IComponentHealth : public IComponent {
@@ -43,13 +56,27 @@ public:
 	CComponentHealth(int max_hp);
 };
 
-class CComponentMain : public IComponentMain {
+class CComponentPosition : public IComponentPosition {
 private:
-	CPoint * _point;
-	CPlayer* _player;
+	CPoint * _position;
 public:
-	CComponentMain(CPoint* point, CPlayer* player);
+	CComponentPosition(CPoint* position);
 };
+
+class CComponentAccessory : public IComponentAccessory {
+private:
+	CPlayer * _player;
+public:
+	CComponentAccessory(CPlayer* player);
+};
+
+class CComponentGraphic : public IComponentGraphic {
+private:
+
+public:
+
+};
+
 
 //------------------------------------------------------------------------
 
