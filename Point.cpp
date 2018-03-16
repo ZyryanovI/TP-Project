@@ -1,4 +1,2 @@
 #include "AllClasses.h"
-#include "Player.h"
-
-
+#include "Point.h"

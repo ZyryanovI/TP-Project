@@ -1,5 +1,6 @@
 #include "AllClasses.h"
 #include "Tower.h"
+#include "Game.h"
 #include <assert.h>
 #include <iostream>
 #include <string>
@@ -12,8 +13,14 @@ void test() {
 	delete tower;
 }
 
+void test2() {
+	CGame* game = CGame::Instance();
+	CGame::DeleteInstance();
+}
+
 int main() {
 	test();
+	test2();
 
 	std::string s;
 	std::cin >> s;
