@@ -1,5 +1,2 @@
 #include "AllClasses.h"
-
-class CPoint {
-
-};
+#include "Point.h"
