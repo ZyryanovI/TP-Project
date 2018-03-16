@@ -46,7 +46,7 @@ IProducer::~IProducer()
 //************************************************
 CProducer::CProducer()
 {
-	_produser = nullptr;
+	_factory = nullptr;
 }
 
 CProducer::~CProducer()
@@ -56,7 +56,7 @@ CProducer::~CProducer()
 
 void CProducer::SetFactoryAndPlayer(CPlayer* player, IFactory* produser)
 {
-	_produser = produser;
+	_factory = produser;
 	_player = player;
 }
 
@@ -64,7 +64,7 @@ bool CProducer::IsAbleToCreate()
 {
 	int time = clock();
 	time /= CLOCKS_PER_SEC;
-	if ((time > _cd_finish) && (_player->money >= _produser->GetCOST()))
+	if ((time > _cd_finish) && (_player->money >= _factory->GetCOST()))
 	{
 		return true;
 	}
@@ -80,7 +80,7 @@ CTower* CProducer::Create()
 	{
 		ChangeCD();
 		ChangeMoney();
-		return _produser->Create();
+		return _factory->Create();
 	}
 	else
 	{
@@ -91,12 +91,12 @@ CTower* CProducer::Create()
 
 void CProducer::ChangeMoney()
 {
-	_player->money -= _produser->GetCOST();
+	_player->money -= _factory->GetCOST();
 }
 
 void CProducer::ChangeCD()
 {
 	int time = clock();
 	time /= CLOCKS_PER_SEC;
-	_cd_finish = time + _produser->GetCD();
+	_cd_finish = time + _factory->GetCD();
 }

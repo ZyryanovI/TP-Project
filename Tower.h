@@ -68,8 +68,6 @@ public:
 	virtual void SetFactoryAndPlayer(CPlayer* player, IFactory* produser) = 0;
 	virtual bool IsAbleToCreate() = 0;
 	virtual CTower* Create() = 0;
-	virtual void ChangeMoney() = 0;
-	virtual void ChangeCD() = 0;
 };
 
 
@@ -86,13 +84,11 @@ public:
 
 	CTower* Create();
 
-	void ChangeMoney();
-
-	void ChangeCD();
-
 
 private:
-	IFactory* _produser;
+	void ChangeMoney();
+	void ChangeCD();
+	IFactory* _factory;
 	CPlayer* _player;
 	int _cd_finish;
 };
