@@ -48,36 +48,10 @@ public:
 
 };
 
-//////
-class IComponentCD : public IComponent {
-public:
-	virtual CTypeOfComponent GetType();
-
-};
-
-class IComponentCost : public IComponent {
-public:
-	virtual CTypeOfComponent GetType();
-
-};
 
 //------------------------------------------------------------------------
 
-class CComponentCD : public IComponentCD {
-private:
-	int _CD;
-public:
-	CComponentCD(int cd);
-};
 
-class CComponentCost : public IComponentCost {
-private:
-	int _COST;
-public:
-	CComponentCost(int cost);
-};
-
-///////
 
 class CComponentHealth : public IComponentHealth {
 private:

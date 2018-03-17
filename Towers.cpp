@@ -22,8 +22,7 @@ CTower* CFactoryNormal::Create() {
 	tower->AddComponent(new CComponentGraphic());
 	tower->AddComponent(new CComponentPower());
 	tower->AddComponent(new CComponentTargetAttack(DMG, RADIUS, ATTACK_KD));
-	tower->AddComponent(new CComponentCD(CD));
-	tower->AddComponent(new CComponentCost(COST));
+
 
 	return tower;
 }
@@ -49,8 +48,6 @@ CTower* CFactoryLongRange::Create() {
 	tower->AddComponent(new CComponentGraphic());
 	tower->AddComponent(new CComponentPower());
 	tower->AddComponent(new CComponentTargetAttack(DMG, RADIUS, ATTACK_KD));
-	tower->AddComponent(new CComponentCD(CD));
-	tower->AddComponent(new CComponentCost(COST));
 
 	return tower;
 }
@@ -76,8 +73,7 @@ CTower* CFactoryProtective::Create() { //
 	tower->AddComponent(new CComponentGraphic());
 	tower->AddComponent(new CComponentPower());
 	tower->AddComponent(new CComponentTargetAttack(DMG, RADIUS, ATTACK_KD));
-	tower->AddComponent(new CComponentCD(CD));
-	tower->AddComponent(new CComponentCost(COST));
+
 
 	return tower;
 }
@@ -103,8 +99,6 @@ CTower* CFactoryMissile::Create() { //
 	tower->AddComponent(new CComponentGraphic());
 	tower->AddComponent(new CComponentPower());
 	tower->AddComponent(new CComponentActiveSkill());
-	tower->AddComponent(new CComponentCD(CD));
-	tower->AddComponent(new CComponentCost(COST));
 
 	return tower;
 }
@@ -130,8 +124,6 @@ CTower* CFactorySupport::Create() { //
 	tower->AddComponent(new CComponentGraphic());
 	tower->AddComponent(new CComponentPower());
 	tower->AddComponent(new CComponentPassiveSkill());
-	tower->AddComponent(new CComponentCD(CD));
-	tower->AddComponent(new CComponentCost(COST));
 
 	return tower;
 }
@@ -158,8 +150,6 @@ CTower* CFactoryMoving::Create() {
 	tower->AddComponent(new CComponentPower());
 	tower->AddComponent(new CComponentTargetAttack(DMG, RADIUS, ATTACK_KD));
 	tower->AddComponent(new CComponentActiveSkill());
-	tower->AddComponent(new CComponentCD(CD));
-	tower->AddComponent(new CComponentCost(COST));
 
 	return tower;
 }
@@ -185,8 +175,6 @@ CTower* CFactoryHealer::Create() { //
 	tower->AddComponent(new CComponentGraphic());
 	tower->AddComponent(new CComponentPower());
 	tower->AddComponent(new CComponentPassiveSkill());
-	tower->AddComponent(new CComponentCD(CD));
-	tower->AddComponent(new CComponentCost(COST));
 
 	return tower;
 }
@@ -212,8 +200,7 @@ CTower* CFactoryEnlarger::Create() { //
 	tower->AddComponent(new CComponentGraphic());
 	tower->AddComponent(new CComponentPower());
 	tower->AddComponent(new CComponentPassiveSkill());
-	tower->AddComponent(new CComponentCD(CD));
-	tower->AddComponent(new CComponentCost(COST));
+
 
 	return tower;
 }
@@ -239,8 +226,7 @@ CTower* CFactoryGenerator::Create() { //сделать
 	tower->AddComponent(new CComponentGraphic());
 	tower->AddComponent(new CComponentPower());
 	tower->AddComponent(new CComponentPassiveSkill());
-	tower->AddComponent(new CComponentCD(CD));
-	tower->AddComponent(new CComponentCost(COST));
+
 
 	return tower;
 }
@@ -266,8 +252,6 @@ CTower* CFactoryBase::Create() { //сделать
 	tower->AddComponent(new CComponentGraphic());
 	tower->AddComponent(new CComponentPower());
 	tower->AddComponent(new CComponentPassiveSkill());
-	tower->AddComponent(new CComponentCD(CD));
-	tower->AddComponent(new CComponentCost(COST));
 
 	return tower;
 }

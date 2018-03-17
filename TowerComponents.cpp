@@ -33,14 +33,6 @@ CTypeOfComponent IComponentPassiveSkill::GetType() {
 }
 
 
-////
-CTypeOfComponent IComponentCD::GetType() {
-	return COMP_CD;
-}
-
-CTypeOfComponent IComponentCost::GetType() {
-	return COMP_COST;
-}
 
 //---------------------------------------------------------------------------
 
@@ -63,11 +55,3 @@ CComponentTargetAttack::CComponentTargetAttack(int damage, int radius, double ma
 	_MAX_KD = max_kd;
 }
 
-//////
-CComponentCD::CComponentCD(int cd) {
-	_CD = cd;
-}
-
-CComponentCost::CComponentCost(int cost) {
-	_COST = cost;
-}
