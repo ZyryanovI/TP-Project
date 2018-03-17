@@ -32,6 +32,8 @@ CTypeOfComponent IComponentPassiveSkill::GetType() {
 	return COMP_PASSIVE_SKILL;
 }
 
+
+
 //---------------------------------------------------------------------------
 
 CComponentHealth::CComponentHealth(int max_hp) {
@@ -52,3 +54,4 @@ CComponentTargetAttack::CComponentTargetAttack(int damage, int radius, double ma
 	_RADIUS = radius;
 	_MAX_KD = max_kd;
 }
+

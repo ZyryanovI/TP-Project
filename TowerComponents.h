@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include "Tower.h"
 #include "AllClasses.h"
 
@@ -48,7 +48,10 @@ public:
 
 };
 
+
 //------------------------------------------------------------------------
+
+
 
 class CComponentHealth : public IComponentHealth {
 private:
@@ -91,5 +94,17 @@ public:
 };
 
 class CComponentPower : public IComponentPower {
+
+};
+
+class CComponentPassiveSkill : public IComponentPassiveSkill { //to divide on healer, support, enlarger
+
+
+
+};
+
+class CComponentActiveSkill : public IComponentActiveSkill { //to divide on moving and Missile
+
+
 
 };
