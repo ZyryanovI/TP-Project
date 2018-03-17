@@ -92,6 +92,32 @@ const int CFactoryProtective::GetCOST()
 	return COST;
 }
 
+//////
+
+CTower* CFactoryMissile::Create() { //
+	CTower* tower = new CTower;
+
+	tower->AddComponent(new CComponentHealth(HP));
+	tower->AddComponent(new CComponentAccessory(PLAYER));
+	tower->AddComponent(new CComponentPosition(POINT));
+	tower->AddComponent(new CComponentGraphic());
+	tower->AddComponent(new CComponentPower());
+	tower->AddComponent(new CComponentActiveSkill());
+	tower->AddComponent(new CComponentCD(CD));
+	tower->AddComponent(new CComponentCost(COST));
+
+	return tower;
+}
+
+const int CFactoryMissile::GetCD()
+{
+	return CD;
+}
+
+const int CFactoryMissile::GetCOST()
+{
+	return COST;
+}
 
 /////
 

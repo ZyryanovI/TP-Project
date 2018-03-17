@@ -123,13 +123,13 @@ class CComponentPower : public IComponentPower {
 
 };
 
-class CComponentPassiveSkill : public IComponentPassiveSkill { //возможно на healer, support разделить, прирост ресурсов
+class CComponentPassiveSkill : public IComponentPassiveSkill { //to divide on healer, support, enlarger
 
 
 
 };
 
-class CComponentActiveSkill : public IComponentActiveSkill { //тоже разделить
+class CComponentActiveSkill : public IComponentActiveSkill { //to divide on moving and Missile
 
 
 

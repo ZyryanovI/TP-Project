@@ -81,7 +81,7 @@ public:
 };
 
 
-class CFactoryProtective : public IFactory { //еще ничего не менял, решить по поводу того как делать, с компонентами(новая компанента и как со старой взаимодействовать
+class CFactoryProtective : public IFactory { //what to do with that?
 private:
 	const int HP = 200;
 	const int DMG = 5;
@@ -102,7 +102,7 @@ public:
 
 
 
-class CFactoryMissile : public IFactory { //сделать
+class CFactoryMissile : public IFactory {
 private:
 	const int HP = 100;
 	const int RADIUS = 100;
@@ -197,7 +197,7 @@ public:
 };
 
 
-class CFactoryGenerator : public IFactory { //посмотреть что с генерированием
+class CFactoryGenerator : public IFactory { //do something with generating
 private:
 	const int HP = 100;
 	const int DMG = 5;
@@ -217,7 +217,7 @@ public:
 };
 
 
-class CFactoryBase : public IFactory { //посмотреть что с генерированием
+class CFactoryBase : public IFactory { //do something with generating
 private:
 	const int HP = 100;
 	const int DMG = 5;
