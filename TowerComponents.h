@@ -122,3 +122,15 @@ public:
 class CComponentPower : public IComponentPower {
 
 };
+
+class CComponentPassiveSkill : public IComponentPassiveSkill { //возможно на healer, support разделить, прирост ресурсов
+
+
+
+};
+
+class CComponentActiveSkill : public IComponentActiveSkill { //тоже разделить
+
+
+
+};

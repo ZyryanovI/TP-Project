@@ -60,6 +60,181 @@ public:
 	virtual CTower* Create();
 };
 
+
+class CFactoryLongRange : public IFactory {
+private:
+	const int HP = 50;
+	const int DMG = 5;
+	const int RADIUS = 200;
+	const double ATTACK_KD = 0.5;
+	const int CD = 10;
+	const int COST = 15;
+
+	CPoint* POINT = nullptr;
+	CPlayer* PLAYER = nullptr;
+
+public:
+	const int GetCD();
+	const int GetCOST();
+
+	virtual CTower* Create();
+};
+
+
+class CFactoryProtective : public IFactory { //еще ничего не менял, решить по поводу того как делать, с компонентами(новая компанента и как со старой взаимодействовать
+private:
+	const int HP = 200;
+	const int DMG = 5;
+	const int RADIUS = 200;
+	const double ATTACK_KD = 0.5;
+	const int CD = 10;
+	const int COST = 15;
+
+	CPoint* POINT = nullptr;
+	CPlayer* PLAYER = nullptr;
+
+public:
+	const int GetCD();
+	const int GetCOST();
+
+	virtual CTower* Create();
+};
+
+
+
+class CFactoryMissile : public IFactory { //сделать
+private:
+	const int HP = 100;
+	const int RADIUS = 100;
+	const double ATTACK_KD = 0.5;
+	const int CD = 30;
+	const int COST = 25;
+
+	CPoint* POINT = nullptr;
+	CPlayer* PLAYER = nullptr;
+
+public:
+	const int GetCD();
+	const int GetCOST();
+
+	virtual CTower* Create();
+};
+
+
+class CFactorySupport : public IFactory {
+private:
+	const int HP = 100;
+	const int CD = 20;
+	const int COST = 15;
+
+	CPoint* POINT = nullptr;
+	CPlayer* PLAYER = nullptr;
+
+public:
+	const int GetCD();
+	const int GetCOST();
+
+	virtual CTower* Create();
+};
+
+
+
+class CFactoryMoving : public IFactory {
+private:
+	const int HP = 100;
+	const int DMG = 5;
+	const int RADIUS = 100;
+	const double ATTACK_KD = 0.5;
+	const int CD = 40;
+	const int COST = 25;
+
+	CPoint* POINT = nullptr;
+	CPlayer* PLAYER = nullptr;
+
+public:
+	const int GetCD();
+	const int GetCOST();
+
+	virtual CTower* Create();
+};
+
+
+class CFactoryHealer : public IFactory {
+private:
+	const int HP = 100;
+	const int RADIUS = 200;
+	const double Heal_KD = 0.5;
+	const int CD = 20;
+	const int COST = 20;
+
+	CPoint* POINT = nullptr;
+	CPlayer* PLAYER = nullptr;
+
+public:
+	const int GetCD();
+	const int GetCOST();
+
+	virtual CTower* Create();
+};
+
+
+class CFactoryEnlarger : public IFactory {
+private:
+	const int HP = 100;
+	const int RADIUS = 200;
+	const double Heal_KD = 0.5;
+	const int CD = 20;
+	const int COST = 20;
+
+	CPoint* POINT = nullptr;
+	CPlayer* PLAYER = nullptr;
+
+public:
+	const int GetCD();
+	const int GetCOST();
+
+	virtual CTower* Create();
+};
+
+
+class CFactoryGenerator : public IFactory { //посмотреть что с генерированием
+private:
+	const int HP = 100;
+	const int DMG = 5;
+	const int RADIUS = 100;
+	const double ATTACK_KD = 0.5;
+	const int CD = 10;
+	const int COST = 10;
+
+	CPoint* POINT = nullptr;
+	CPlayer* PLAYER = nullptr;
+
+public:
+	const int GetCD();
+	const int GetCOST();
+
+	virtual CTower* Create();
+};
+
+
+class CFactoryBase : public IFactory { //посмотреть что с генерированием
+private:
+	const int HP = 100;
+	const int DMG = 5;
+	const int RADIUS = 100;
+	const double ATTACK_KD = 0.5;
+	const int CD = 10;
+	const int COST = 10;
+
+	CPoint* POINT = nullptr;
+	CPlayer* PLAYER = nullptr;
+
+public:
+	const int GetCD();
+	const int GetCOST();
+
+	virtual CTower* Create();
+};
 //****************************************************
 
 class IProducer {
