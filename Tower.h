@@ -3,10 +3,13 @@
 #include "AllClasses.h"
 #include <ctime>
 #include "Player.h"
+#include <memory>
+
+using std::unique_ptr;
+using std::shared_ptr;
+using std::weak_ptr;
 
 enum CTypeOfComponent {
-    COMP_CD,
-    COMP_COST,
     COMP_POSITION,
     COMP_GRAPHIC,
     COMP_ACCESSORY,
@@ -26,7 +29,7 @@ public:
 
 class CTower {
 private:
-    std::vector<IComponent*> components;
+    std::vector<unique_ptr<IComponent> > components;
 public:
     void AddComponent(IComponent* comp);
 };
@@ -34,9 +37,9 @@ public:
 class IFactory {
 public:
     virtual ~IFactory();
-    virtual CTower* Create() = 0;
-    virtual const int GetCD() = 0;  //added that
-    virtual const int GetCOST() = 0; //added that
+    virtual CTower* Create(CPoint*, CPlayer*) = 0;
+    virtual int GetCD() const = 0;  //added that
+    virtual int GetCOST() const = 0; //added that
 };
 
 //------------------------------------------------------
@@ -46,18 +49,15 @@ private:
     const int HP = 100;
     const int DMG = 5;
     const int RADIUS = 100;
-    const double ATTACK_KD = 0.5;
+    const double ATTACK_CD = 0.5;
     const int CD = 10;
     const int COST = 10;
 
-    CPoint* POINT = nullptr;
-    CPlayer* PLAYER = nullptr;
-
 public:
-    const int GetCD();
-    const int GetCOST();
+    int GetCD() const;
+    int GetCOST() const;
 
-    virtual CTower* Create();
+    virtual CTower* Create(CPoint*, CPlayer*);
 };
 
 
@@ -66,38 +66,29 @@ private:
     const int HP = 50;
     const int DMG = 5;
     const int RADIUS = 200;
-    const double ATTACK_KD = 0.5;
+    const double ATTACK_CD = 0.5;
     const int CD = 10;
     const int COST = 15;
 
-    CPoint* POINT = nullptr;
-    CPlayer* PLAYER = nullptr;
-
 public:
-    const int GetCD();
-    const int GetCOST();
+    int GetCD() const;
+    int GetCOST() const;
 
-    virtual CTower* Create();
+    virtual CTower* Create(CPoint*, CPlayer*);
 };
 
 
 class CFactoryProtective : public IFactory { //what to do with that?
 private:
     const int HP = 200;
-    const int DMG = 5;
-    const int RADIUS = 200;
-    const double ATTACK_KD = 0.5;
     const int CD = 10;
     const int COST = 15;
 
-    CPoint* POINT = nullptr;
-    CPlayer* PLAYER = nullptr;
-
 public:
-    const int GetCD();
-    const int GetCOST();
+    int GetCD() const;
+    int GetCOST() const;
 
-    virtual CTower* Create();
+    virtual CTower* Create(CPoint*, CPlayer*);
 };
 
 
@@ -105,36 +96,32 @@ public:
 class CFactoryMissile : public IFactory {
 private:
     const int HP = 100;
-    const int RADIUS = 100;
-    const double ATTACK_KD = 0.5;
+    const int SKILL_CD = 30;
     const int CD = 30;
     const int COST = 25;
 
-    CPoint* POINT = nullptr;
-    CPlayer* PLAYER = nullptr;
-
 public:
-    const int GetCD();
-    const int GetCOST();
+    int GetCD() const;
+    int GetCOST() const;
 
-    virtual CTower* Create();
+    virtual CTower* Create(CPoint*, CPlayer*);
 };
 
 
 class CFactorySupport : public IFactory {
 private:
     const int HP = 100;
-    const int CD = 20;
+    const int RADIUS = 100;
+    const double MULTIPLY = 2;
+
+    const int CD = 10;
     const int COST = 15;
 
-    CPoint* POINT = nullptr;
-    CPlayer* PLAYER = nullptr;
-
 public:
-    const int GetCD();
-    const int GetCOST();
+    int GetCD() const;
+    int GetCOST() const;
 
-    virtual CTower* Create();
+    virtual CTower* Create(CPoint*, CPlayer*);
 };
 
 
@@ -144,18 +131,17 @@ private:
     const int HP = 100;
     const int DMG = 5;
     const int RADIUS = 100;
-    const double ATTACK_KD = 0.5;
+    const double ATTACK_CD = 0.5;
+    const int SKILL_CD = 20;
+
     const int CD = 40;
     const int COST = 25;
 
-    CPoint* POINT = nullptr;
-    CPlayer* PLAYER = nullptr;
-
 public:
-    const int GetCD();
-    const int GetCOST();
+    int GetCD() const;
+    int GetCOST() const;
 
-    virtual CTower* Create();
+    virtual CTower* Create(CPoint*, CPlayer*);
 };
 
 
@@ -163,107 +149,60 @@ class CFactoryHealer : public IFactory {
 private:
     const int HP = 100;
     const int RADIUS = 200;
-    const double Heal_KD = 0.5;
+    const int HEAL_SPEED = 5;
     const int CD = 20;
     const int COST = 20;
 
-    CPoint* POINT = nullptr;
-    CPlayer* PLAYER = nullptr;
-
 public:
-    const int GetCD();
-    const int GetCOST();
+    int GetCD() const;
+    int GetCOST() const;
 
-    virtual CTower* Create();
+    virtual CTower* Create(CPoint*, CPlayer*);
 };
 
 
 class CFactoryEnlarger : public IFactory {
 private:
     const int HP = 100;
-    const int RADIUS = 200;
-    const double Heal_KD = 0.5;
+    const int ENLARGE_SPEED = 10;
     const int CD = 20;
     const int COST = 20;
 
-    CPoint* POINT = nullptr;
-    CPlayer* PLAYER = nullptr;
-
 public:
-    const int GetCD();
-    const int GetCOST();
+    int GetCD() const;
+    int GetCOST() const;
 
-    virtual CTower* Create();
+    virtual CTower* Create(CPoint*, CPlayer*);
 };
 
 
 class CFactoryGenerator : public IFactory { //do something with generating
 private:
     const int HP = 100;
-    const int DMG = 5;
-    const int RADIUS = 100;
-    const double ATTACK_KD = 0.5;
+    const int ENLARGE_SPEED = 5;
     const int CD = 10;
     const int COST = 10;
 
-    CPoint* POINT = nullptr;
-    CPlayer* PLAYER = nullptr;
-
 public:
-    const int GetCD();
-    const int GetCOST();
+    int GetCD() const;
+    int GetCOST() const;
 
-    virtual CTower* Create();
+    virtual CTower* Create(CPoint*, CPlayer*);
 };
 
 
-class CFactoryBase : public IFactory { //do something with generating
+class CFactoryBase : public IFactory {
 private:
     const int HP = 100;
     const int DMG = 5;
     const int RADIUS = 100;
-    const double ATTACK_KD = 0.5;
+    const double ATTACK_CD = 0.5;
     const int CD = 10;
     const int COST = 10;
 
-    CPoint* POINT = nullptr;
-    CPlayer* PLAYER = nullptr;
-
 public:
-    const int GetCD();
-    const int GetCOST();
+    int GetCD() const;
+    int GetCOST() const;
 
-    virtual CTower* Create();
-};
-//****************************************************
-
-class IProducer {
-public:
-    virtual ~IProducer();
-    virtual void SetFactoryAndPlayer(CPlayer* player, IFactory* produser) = 0;
-    virtual bool IsAbleToCreate() = 0;
-    virtual CTower* Create() = 0;
-};
-
-
-//***************************************
-
-class CProducer : public IProducer{
-public:
-    CProducer();
-    ~CProducer();
-
-    void SetFactoryAndPlayer(CPlayer* player, IFactory* produser);
-
-    bool IsAbleToCreate();
-
-    CTower* Create();
-
-
-private:
-    void ChangeMoney();
-    void ChangeCD();
-    IFactory* _factory;
-    CPlayer* _player;
-    int _cd_finish;
+    virtual CTower* Create(CPoint*, CPlayer*);
 };
