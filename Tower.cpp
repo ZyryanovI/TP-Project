@@ -30,7 +30,7 @@ int CFactoryNormal::GetCD() const{
     return CD;
 }
 
-int CFactoryNormal::GetCOST() {
+int CFactoryNormal::GetCOST() const{
     return COST;
 }
 
@@ -105,7 +105,7 @@ int CFactoryMissile::GetCOST() const{
 
 /////
 
-CTower* CFactorySupport::Create(CPoint* point, CPlayer* player) { 
+CTower* CFactorySupport::Create(CPoint* point, CPlayer* player) {
     CTower* tower = new CTower;
 
     tower->AddComponent(new CComponentHealth(HP));
@@ -175,7 +175,7 @@ int CFactoryHealer::GetCOST() const{
 
 /////////
 
-CTower* CFactoryEnlarger::Create(CPoint* point, CPlayer* player) { 
+CTower* CFactoryEnlarger::Create(CPoint* point, CPlayer* player) {
     CTower* tower = new CTower;
 
     tower->AddComponent(new CComponentHealth(HP));
@@ -207,7 +207,7 @@ CTower* CFactoryGenerator::Create(CPoint* point, CPlayer* player) {
     tower->AddComponent(new CComponentPosition(point));
     tower->AddComponent(new CComponentGraphic());
     tower->AddComponent(new CComponentPowerGenerate());
-	tower->AddComponent(new CComponentPassiveSkillEnlarger(ENLARGE_SPEED));
+    tower->AddComponent(new CComponentPassiveSkillEnlarger(ENLARGE_SPEED));
 
     return tower;
 }
