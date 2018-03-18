@@ -20,7 +20,7 @@ void CProducer::SetFactoryAndPlayer(CPlayer* player, shared_ptr<IFactory> factor
 }
 
 bool CProducer::IsAbleToCreate() {
-	return _cd < 0 && _player->money >= _factory->GetCOST();
+	return _cd <= 0 && _player->money >= _factory->GetCOST();
 }
 
 CTower* CProducer::Create(CPoint* point) {
