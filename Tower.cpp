@@ -26,11 +26,11 @@ CTower* CFactoryNormal::Create(CPoint* point, CPlayer* player) {
     return tower;
 }
 
-const int CFactoryNormal::GetCD() {
+int CFactoryNormal::GetCD() const{
     return CD;
 }
 
-const int CFactoryNormal::GetCOST() {
+int CFactoryNormal::GetCOST() {
     return COST;
 }
 
@@ -49,11 +49,11 @@ CTower* CFactoryLongRange::Create(CPoint* point, CPlayer* player) {
     return tower;
 }
 
-const int CFactoryLongRange::GetCD() {
+int CFactoryLongRange::GetCD() const{
     return CD;
 }
 
-const int CFactoryLongRange::GetCOST() {
+int CFactoryLongRange::GetCOST() const{
     return COST;
 }
 
@@ -72,11 +72,11 @@ CTower* CFactoryProtective::Create(CPoint* point, CPlayer* player) {
     return tower;
 }
 
-const int CFactoryProtective::GetCD() {
+int CFactoryProtective::GetCD() const{
     return CD;
 }
 
-const int CFactoryProtective::GetCOST() {
+int CFactoryProtective::GetCOST() const{
     return COST;
 }
 
@@ -95,11 +95,11 @@ CTower* CFactoryMissile::Create(CPoint* point, CPlayer* player) {
     return tower;
 }
 
-const int CFactoryMissile::GetCD() {
+int CFactoryMissile::GetCD() const{
     return CD;
 }
 
-const int CFactoryMissile::GetCOST() {
+int CFactoryMissile::GetCOST() const{
     return COST;
 }
 
@@ -118,11 +118,11 @@ CTower* CFactorySupport::Create(CPoint* point, CPlayer* player) {
     return tower;
 }
 
-const int CFactorySupport::GetCD() {
+int CFactorySupport::GetCD() const{
     return CD;
 }
 
-const int CFactorySupport::GetCOST() {
+int CFactorySupport::GetCOST() const{
     return COST;
 }
 
@@ -142,11 +142,11 @@ CTower* CFactoryMoving::Create(CPoint* point, CPlayer* player) {
     return tower;
 }
 
-const int CFactoryMoving::GetCD() {
+int CFactoryMoving::GetCD() const{
     return CD;
 }
 
-const int CFactoryMoving::GetCOST() {
+int CFactoryMoving::GetCOST() const{
     return COST;
 }
 
@@ -165,11 +165,11 @@ CTower* CFactoryHealer::Create(CPoint* point, CPlayer* player) {
     return tower;
 }
 
-const int CFactoryHealer::GetCD() {
+int CFactoryHealer::GetCD() const{
     return CD;
 }
 
-const int CFactoryHealer::GetCOST() {
+int CFactoryHealer::GetCOST() const{
     return COST;
 }
 
@@ -189,11 +189,11 @@ CTower* CFactoryEnlarger::Create(CPoint* point, CPlayer* player) {
     return tower;
 }
 
-const int CFactoryEnlarger::GetCD() {
+int CFactoryEnlarger::GetCD() const{
     return CD;
 }
 
-const int CFactoryEnlarger::GetCOST() {
+int CFactoryEnlarger::GetCOST() const{
     return COST;
 }
 
@@ -212,11 +212,11 @@ CTower* CFactoryGenerator::Create(CPoint* point, CPlayer* player) {
     return tower;
 }
 
-const int CFactoryGenerator::GetCD() {
+int CFactoryGenerator::GetCD() const{
     return CD;
 }
 
-const int CFactoryGenerator::GetCOST() {
+int CFactoryGenerator::GetCOST() const{
     return COST;
 }
 
@@ -234,11 +234,11 @@ CTower* CFactoryBase::Create(CPoint* point, CPlayer* player) {
     return tower;
 }
 
-const int CFactoryBase::GetCD() {
+int CFactoryBase::GetCD() const{
     return CD;
 }
 
-const int CFactoryBase::GetCOST() {
+int CFactoryBase::GetCOST() const{
     return COST;
 }
 

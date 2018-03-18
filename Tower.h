@@ -38,8 +38,8 @@ class IFactory {
 public:
     virtual ~IFactory();
     virtual CTower* Create(CPoint*, CPlayer*) = 0;
-    virtual const int GetCD() = 0;  //added that
-    virtual const int GetCOST() = 0; //added that
+    virtual int GetCD() const = 0;  //added that
+    virtual int GetCOST() const = 0; //added that
 };
 
 //------------------------------------------------------
@@ -54,8 +54,8 @@ private:
     const int COST = 10;
 
 public:
-    const int GetCD();
-    const int GetCOST();
+    int GetCD() const;
+    int GetCOST() const;
 
     virtual CTower* Create(CPoint*, CPlayer*);
 };
@@ -71,8 +71,8 @@ private:
     const int COST = 15;
 
 public:
-    const int GetCD();
-    const int GetCOST();
+    int GetCD() const;
+    int GetCOST() const;
 
     virtual CTower* Create(CPoint*, CPlayer*);
 };
@@ -85,8 +85,8 @@ private:
     const int COST = 15;
 
 public:
-    const int GetCD();
-    const int GetCOST();
+    int GetCD() const;
+    int GetCOST() const;
 
     virtual CTower* Create(CPoint*, CPlayer*);
 };
@@ -97,12 +97,12 @@ class CFactoryMissile : public IFactory {
 private:
     const int HP = 100;
 	const int SKILL_CD = 30;
-    const int CD = 30;
+	const int CD = 30;
     const int COST = 25;
 
 public:
-    const int GetCD();
-    const int GetCOST();
+    int GetCD() const;
+    int GetCOST() const;
 
     virtual CTower* Create(CPoint*, CPlayer*);
 };
@@ -114,12 +114,12 @@ private:
 	const int RADIUS = 100;
 	const double MULTIPLY = 2;
 
-	const int CD = 10;
+    const int CD = 10;
     const int COST = 15;
 
 public:
-    const int GetCD();
-    const int GetCOST();
+    int GetCD() const;
+    int GetCOST() const;
 
     virtual CTower* Create(CPoint*, CPlayer*);
 };
@@ -138,8 +138,8 @@ private:
     const int COST = 25;
 
 public:
-    const int GetCD();
-    const int GetCOST();
+    int GetCD() const;
+    int GetCOST() const;
 
     virtual CTower* Create(CPoint*, CPlayer*);
 };
@@ -154,8 +154,8 @@ private:
     const int COST = 20;
 
 public:
-    const int GetCD();
-    const int GetCOST();
+    int GetCD() const;
+    int GetCOST() const;
 
     virtual CTower* Create(CPoint*, CPlayer*);
 };
@@ -169,8 +169,8 @@ private:
     const int COST = 20;
 
 public:
-    const int GetCD();
-    const int GetCOST();
+    int GetCD() const;
+    int GetCOST() const;
 
     virtual CTower* Create(CPoint*, CPlayer*);
 };
@@ -184,8 +184,8 @@ private:
     const int COST = 10;
 
 public:
-    const int GetCD();
-    const int GetCOST();
+    int GetCD() const;
+    int GetCOST() const;
 
     virtual CTower* Create(CPoint*, CPlayer*);
 };
@@ -201,8 +201,8 @@ private:
     const int COST = 10;
 
 public:
-    const int GetCD();
-    const int GetCOST();
+    int GetCD() const;
+    int GetCOST() const;
 
     virtual CTower* Create(CPoint*, CPlayer*);
 };
