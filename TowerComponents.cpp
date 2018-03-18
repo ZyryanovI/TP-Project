@@ -54,3 +54,25 @@ CComponentTargetAttack::CComponentTargetAttack(int damage, int radius, double ma
     _RADIUS = radius;
     _MAX_KD = max_kd;
 }
+
+CComponentPassiveSkillHeal::CComponentPassiveSkillHeal(int radius, int heal_speed) {
+	_RADIUS = radius;
+	_HEAL_PER_SEC = heal_speed;
+}
+
+CComponentTargetSkillSupport::CComponentTargetSkillSupport(int radius, double multiply) {
+	_RADIUS = radius;
+	_MULTIPLY = multiply;
+}
+
+CComponentPassiveSkillEnlarger::CComponentPassiveSkillEnlarger(int speed) {
+	_SPEED = speed;
+}
+
+CComponentActiveSkillMoving::CComponentActiveSkillMoving(int kd) {
+	_KD = kd;
+}
+
+CComponentActiveSkillMissile::CComponentActiveSkillMissile(int kd) {
+	_KD = kd;
+}

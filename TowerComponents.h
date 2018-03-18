@@ -106,28 +106,39 @@ class CComponentPowerGenerate : public IComponentPower {
 };
 
 class CComponentPassiveSkillHeal : public IComponentPassiveSkill {
-
-
-
+private:
+	int _RADIUS;
+	int _HEAL_PER_SEC;
+public:
+	CComponentPassiveSkillHeal(int radius, int heal_speed);
 };
 
-class CComponentPassiveSkillSupport : public IComponentPassiveSkill {
-
-
-
+class CComponentTargetSkillSupport : public IComponentTargetSkill {
+private:
+	int _RADIUS;
+	double _MULTIPLY;
+public:
+	CComponentTargetSkillSupport(int radius, double multiply);
 };
 
 class CComponentPassiveSkillEnlarger : public IComponentPassiveSkill {
-
-
-
+private:
+	int _SPEED;
+public:
+	CComponentPassiveSkillEnlarger(int speed);
 };
 
 
 class CComponentActiveSkillMoving : public IComponentActiveSkill{
-
+private:
+	int _KD;
+public:
+	CComponentActiveSkillMoving(int kd);
 };
 
 class CComponentActiveSkillMissile : public IComponentActiveSkill{
-
+private:
+	int _KD;
+public:
+	CComponentActiveSkillMissile(int kd);
 };
