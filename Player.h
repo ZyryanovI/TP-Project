@@ -2,7 +2,7 @@
 
 class CPlayer {
 public:
-	int money;
+    int money;
 
 private:
 

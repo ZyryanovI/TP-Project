@@ -4,47 +4,47 @@
 
 class IComponentPosition : public IComponent {
 public:
-	virtual CTypeOfComponent GetType();
+    virtual CTypeOfComponent GetType();
 
 };
 
 class IComponentGraphic : public IComponent {
 public:
-	virtual CTypeOfComponent GetType();
+    virtual CTypeOfComponent GetType();
 
 };
 
 class IComponentAccessory : public IComponent {
 public:
-	virtual CTypeOfComponent GetType();
+    virtual CTypeOfComponent GetType();
 
 };
 
 class IComponentHealth : public IComponent {
 public:
-	virtual CTypeOfComponent GetType();
+    virtual CTypeOfComponent GetType();
 };
 
 class IComponentPower : public IComponent {
 public:
-	virtual CTypeOfComponent GetType();
+    virtual CTypeOfComponent GetType();
 };
 
 class IComponentTargetSkill : public IComponent {
 public:
-	virtual CTypeOfComponent GetType();
+    virtual CTypeOfComponent GetType();
 
 };
 
 class IComponentActiveSkill : public IComponent {
 public:
-	virtual CTypeOfComponent GetType();
+    virtual CTypeOfComponent GetType();
 
 };
 
 class IComponentPassiveSkill : public IComponent {
 public:
-	virtual CTypeOfComponent GetType();
+    virtual CTypeOfComponent GetType();
 
 };
 
@@ -55,24 +55,24 @@ public:
 
 class CComponentHealth : public IComponentHealth {
 private:
-	int _MAX_HP;
-	int _hp;
+    int _MAX_HP;
+    int _hp;
 public:
-	CComponentHealth(int max_hp);
+    CComponentHealth(int max_hp);
 };
 
 class CComponentPosition : public IComponentPosition {
 private:
-	CPoint * _position;
+    CPoint * _position;
 public:
-	CComponentPosition(CPoint* position);
+    CComponentPosition(CPoint* position);
 };
 
 class CComponentAccessory : public IComponentAccessory {
 private:
-	CPlayer * _player;
+    CPlayer * _player;
 public:
-	CComponentAccessory(CPlayer* player);
+    CComponentAccessory(CPlayer* player);
 };
 
 class CComponentGraphic : public IComponentGraphic {
@@ -84,27 +84,50 @@ public:
 
 class CComponentTargetAttack : public IComponentTargetSkill {
 private:
-	int _DAMAGE;
-	int _RADIUS;
-	double _MAX_KD;
+    int _DAMAGE;
+    int _RADIUS;
+    double _MAX_KD;
 
-	double kd;
+    double kd;
 public:
-	CComponentTargetAttack(int damage, int radius, double max_kd);
+    CComponentTargetAttack(int damage, int radius, double max_kd);
 };
 
-class CComponentPower : public IComponentPower {
-
-};
-
-class CComponentPassiveSkill : public IComponentPassiveSkill { //to divide on healer, support, enlarger
-
-
+class CComponentPowerUsual : public IComponentPower {
 
 };
 
-class CComponentActiveSkill : public IComponentActiveSkill { //to divide on moving and Missile
+class CComponentPowerMoving : public IComponentPower{
+
+};
+
+class CComponentPowerGenerate : public IComponentPower {
+
+};
+
+class CComponentPassiveSkillHeal : public IComponentPassiveSkill {
 
 
+
+};
+
+class CComponentPassiveSkillSupport : public IComponentPassiveSkill {
+
+
+
+};
+
+class CComponentPassiveSkillEnlarger : public IComponentPassiveSkill {
+
+
+
+};
+
+
+class CComponentActiveSkillMoving : public IComponentActiveSkill{
+
+};
+
+class CComponentActiveSkillMissile : public IComponentActiveSkill{
 
 };
