@@ -8,323 +8,288 @@ IComponent::~IComponent() {}
 IFactory::~IFactory() {}
 
 void CTower::AddComponent(IComponent* comp) {
-	components.push_back(comp);
+    components.push_back(comp);
 }
 
 //-----------------------------------------------------------------------
 
 CTower* CFactoryNormal::Create() {
-	CTower* tower = new CTower;
+    CTower* tower = new CTower;
 
-	tower->AddComponent(new CComponentHealth(HP));
-	tower->AddComponent(new CComponentAccessory(PLAYER));
-	tower->AddComponent(new CComponentPosition(POINT));
-	tower->AddComponent(new CComponentGraphic());
-	tower->AddComponent(new CComponentPower());
-	tower->AddComponent(new CComponentTargetAttack(DMG, RADIUS, ATTACK_KD));
+    tower->AddComponent(new CComponentHealth(HP));
+    tower->AddComponent(new CComponentAccessory(PLAYER));
+    tower->AddComponent(new CComponentPosition(POINT));
+    tower->AddComponent(new CComponentGraphic());
+    tower->AddComponent(new CComponentPowerUsual());
+    tower->AddComponent(new CComponentTargetAttack(DMG, RADIUS, ATTACK_KD));
 
 
-	return tower;
+    return tower;
 }
 
-const int CFactoryNormal::GetCD()
-{
-	return CD;
+const int CFactoryNormal::GetCD() {
+    return CD;
 }
 
-const int CFactoryNormal::GetCOST()
-{
-	return COST;
+const int CFactoryNormal::GetCOST() {
+    return COST;
 }
 
 /////
 
 CTower* CFactoryLongRange::Create() {
-	CTower* tower = new CTower;
+    CTower* tower = new CTower;
 
-	tower->AddComponent(new CComponentHealth(HP));
-	tower->AddComponent(new CComponentAccessory(PLAYER));
-	tower->AddComponent(new CComponentPosition(POINT));
-	tower->AddComponent(new CComponentGraphic());
-	tower->AddComponent(new CComponentPower());
-	tower->AddComponent(new CComponentTargetAttack(DMG, RADIUS, ATTACK_KD));
+    tower->AddComponent(new CComponentHealth(HP));
+    tower->AddComponent(new CComponentAccessory(PLAYER));
+    tower->AddComponent(new CComponentPosition(POINT));
+    tower->AddComponent(new CComponentGraphic());
+    tower->AddComponent(new CComponentPowerUsual());
+    tower->AddComponent(new CComponentTargetAttack(DMG, RADIUS, ATTACK_KD));
 
-	return tower;
+    return tower;
 }
 
-const int CFactoryLongRange::GetCD()
-{
-	return CD;
+const int CFactoryLongRange::GetCD() {
+    return CD;
 }
 
-const int CFactoryLongRange::GetCOST()
-{
-	return COST;
+const int CFactoryLongRange::GetCOST() {
+    return COST;
 }
 
 /////
 
 CTower* CFactoryProtective::Create() { //
-	CTower* tower = new CTower;
+    CTower* tower = new CTower;
 
-	tower->AddComponent(new CComponentHealth(HP));
-	tower->AddComponent(new CComponentAccessory(PLAYER));
-	tower->AddComponent(new CComponentPosition(POINT));
-	tower->AddComponent(new CComponentGraphic());
-	tower->AddComponent(new CComponentPower());
-	tower->AddComponent(new CComponentTargetAttack(DMG, RADIUS, ATTACK_KD));
+    tower->AddComponent(new CComponentHealth(HP));
+    tower->AddComponent(new CComponentAccessory(PLAYER));
+    tower->AddComponent(new CComponentPosition(POINT));
+    tower->AddComponent(new CComponentGraphic());
+    tower->AddComponent(new CComponentPowerUsual());
+    tower->AddComponent(new CComponentTargetAttack(DMG, RADIUS, ATTACK_KD));
 
 
-	return tower;
+    return tower;
 }
 
-const int CFactoryProtective::GetCD()
-{
-	return CD;
+const int CFactoryProtective::GetCD() {
+    return CD;
 }
 
-const int CFactoryProtective::GetCOST()
-{
-	return COST;
+const int CFactoryProtective::GetCOST() {
+    return COST;
 }
 
 //////
 
 CTower* CFactoryMissile::Create() { //
-	CTower* tower = new CTower;
+    CTower* tower = new CTower;
 
-	tower->AddComponent(new CComponentHealth(HP));
-	tower->AddComponent(new CComponentAccessory(PLAYER));
-	tower->AddComponent(new CComponentPosition(POINT));
-	tower->AddComponent(new CComponentGraphic());
-	tower->AddComponent(new CComponentPower());
-	tower->AddComponent(new CComponentActiveSkill());
+    tower->AddComponent(new CComponentHealth(HP));
+    tower->AddComponent(new CComponentAccessory(PLAYER));
+    tower->AddComponent(new CComponentPosition(POINT));
+    tower->AddComponent(new CComponentGraphic());
+    tower->AddComponent(new CComponentPowerUsual());
+    tower->AddComponent(new CComponentActiveSkillMissile());
 
-	return tower;
+    return tower;
 }
 
-const int CFactoryMissile::GetCD()
-{
-	return CD;
+const int CFactoryMissile::GetCD() {
+    return CD;
 }
 
-const int CFactoryMissile::GetCOST()
-{
-	return COST;
+const int CFactoryMissile::GetCOST() {
+    return COST;
 }
 
 /////
 
 CTower* CFactorySupport::Create() { //
-	CTower* tower = new CTower;
+    CTower* tower = new CTower;
 
-	tower->AddComponent(new CComponentHealth(HP));
-	tower->AddComponent(new CComponentAccessory(PLAYER));
-	tower->AddComponent(new CComponentPosition(POINT));
-	tower->AddComponent(new CComponentGraphic());
-	tower->AddComponent(new CComponentPower());
-	tower->AddComponent(new CComponentPassiveSkill());
+    tower->AddComponent(new CComponentHealth(HP));
+    tower->AddComponent(new CComponentAccessory(PLAYER));
+    tower->AddComponent(new CComponentPosition(POINT));
+    tower->AddComponent(new CComponentGraphic());
+    tower->AddComponent(new CComponentPowerUsual());
+    tower->AddComponent(new CComponentPassiveSkillSupport());
 
-	return tower;
+    return tower;
 }
 
-const int CFactorySupport::GetCD()
-{
-	return CD;
+const int CFactorySupport::GetCD() {
+    return CD;
 }
 
-const int CFactorySupport::GetCOST()
-{
-	return COST;
+const int CFactorySupport::GetCOST() {
+    return COST;
 }
 
 //////
 
 CTower* CFactoryMoving::Create() {
-	CTower* tower = new CTower;
+    CTower* tower = new CTower;
 
-	tower->AddComponent(new CComponentHealth(HP));
-	tower->AddComponent(new CComponentAccessory(PLAYER));
-	tower->AddComponent(new CComponentPosition(POINT));
-	tower->AddComponent(new CComponentGraphic());
-	tower->AddComponent(new CComponentPower());
-	tower->AddComponent(new CComponentTargetAttack(DMG, RADIUS, ATTACK_KD));
-	tower->AddComponent(new CComponentActiveSkill());
+    tower->AddComponent(new CComponentHealth(HP));
+    tower->AddComponent(new CComponentAccessory(PLAYER));
+    tower->AddComponent(new CComponentPosition(POINT));
+    tower->AddComponent(new CComponentGraphic());
+    tower->AddComponent(new CComponentPowerMoving());
+    tower->AddComponent(new CComponentTargetAttack(DMG, RADIUS, ATTACK_KD));
+    tower->AddComponent(new CComponentActiveSkillMoving());
 
-	return tower;
+    return tower;
 }
 
-const int CFactoryMoving::GetCD()
-{
-	return CD;
+const int CFactoryMoving::GetCD() {
+    return CD;
 }
 
-const int CFactoryMoving::GetCOST()
-{
-	return COST;
+const int CFactoryMoving::GetCOST() {
+    return COST;
 }
 
 ///////
 
 CTower* CFactoryHealer::Create() { //
-	CTower* tower = new CTower;
+    CTower* tower = new CTower;
 
-	tower->AddComponent(new CComponentHealth(HP));
-	tower->AddComponent(new CComponentAccessory(PLAYER));
-	tower->AddComponent(new CComponentPosition(POINT));
-	tower->AddComponent(new CComponentGraphic());
-	tower->AddComponent(new CComponentPower());
-	tower->AddComponent(new CComponentPassiveSkill());
+    tower->AddComponent(new CComponentHealth(HP));
+    tower->AddComponent(new CComponentAccessory(PLAYER));
+    tower->AddComponent(new CComponentPosition(POINT));
+    tower->AddComponent(new CComponentGraphic());
+    tower->AddComponent(new CComponentPowerUsual());
+    tower->AddComponent(new CComponentPassiveSkillHeal());
 
-	return tower;
+    return tower;
 }
 
-const int CFactoryHealer::GetCD()
-{
-	return CD;
+const int CFactoryHealer::GetCD() {
+    return CD;
 }
 
-const int CFactoryHealer::GetCOST()
-{
-	return COST;
+const int CFactoryHealer::GetCOST() {
+    return COST;
 }
 
 /////////
 
 CTower* CFactoryEnlarger::Create() { //
-	CTower* tower = new CTower;
+    CTower* tower = new CTower;
 
-	tower->AddComponent(new CComponentHealth(HP));
-	tower->AddComponent(new CComponentAccessory(PLAYER));
-	tower->AddComponent(new CComponentPosition(POINT));
-	tower->AddComponent(new CComponentGraphic());
-	tower->AddComponent(new CComponentPower());
-	tower->AddComponent(new CComponentPassiveSkill());
+    tower->AddComponent(new CComponentHealth(HP));
+    tower->AddComponent(new CComponentAccessory(PLAYER));
+    tower->AddComponent(new CComponentPosition(POINT));
+    tower->AddComponent(new CComponentGraphic());
+    tower->AddComponent(new CComponentPowerUsual());
+    tower->AddComponent(new CComponentPassiveSkillEnlarger());
 
 
-	return tower;
+    return tower;
 }
 
-const int CFactoryEnlarger::GetCD()
-{
-	return CD;
+const int CFactoryEnlarger::GetCD() {
+    return CD;
 }
 
-const int CFactoryEnlarger::GetCOST()
-{
-	return COST;
+const int CFactoryEnlarger::GetCOST() {
+    return COST;
 }
 
 //////
 
-CTower* CFactoryGenerator::Create() { //ñäåëàòü
-	CTower* tower = new CTower;
+CTower* CFactoryGenerator::Create() { //Ã±Ã¤Ã¥Ã«Ã Ã²Ã¼
+    CTower* tower = new CTower;
 
-	tower->AddComponent(new CComponentHealth(HP));
-	tower->AddComponent(new CComponentAccessory(PLAYER));
-	tower->AddComponent(new CComponentPosition(POINT));
-	tower->AddComponent(new CComponentGraphic());
-	tower->AddComponent(new CComponentPower());
-	tower->AddComponent(new CComponentPassiveSkill());
+    tower->AddComponent(new CComponentHealth(HP));
+    tower->AddComponent(new CComponentAccessory(PLAYER));
+    tower->AddComponent(new CComponentPosition(POINT));
+    tower->AddComponent(new CComponentGraphic());
+    tower->AddComponent(new CComponentPowerGenerate());
 
 
-	return tower;
+    return tower;
 }
 
-const int CFactoryGenerator::GetCD()
-{
-	return CD;
+const int CFactoryGenerator::GetCD() {
+    return CD;
 }
 
-const int CFactoryGenerator::GetCOST()
-{
-	return COST;
+const int CFactoryGenerator::GetCOST() {
+    return COST;
 }
 
 ///////
 
-CTower* CFactoryBase::Create() { //ñäåëàòü
-	CTower* tower = new CTower;
+CTower* CFactoryBase::Create() { //Ã±Ã¤Ã¥Ã«Ã Ã²Ã¼
+    CTower* tower = new CTower;
 
-	tower->AddComponent(new CComponentHealth(HP));
-	tower->AddComponent(new CComponentAccessory(PLAYER));
-	tower->AddComponent(new CComponentPosition(POINT));
-	tower->AddComponent(new CComponentGraphic());
-	tower->AddComponent(new CComponentPower());
-	tower->AddComponent(new CComponentPassiveSkill());
+    tower->AddComponent(new CComponentHealth(HP));
+    tower->AddComponent(new CComponentAccessory(PLAYER));
+    tower->AddComponent(new CComponentPosition(POINT));
+    tower->AddComponent(new CComponentGraphic());
+    tower->AddComponent(new CComponentPowerGenerate());
 
-	return tower;
+    return tower;
 }
 
-const int CFactoryBase::GetCD()
-{
-	return CD;
+const int CFactoryBase::GetCD() {
+    return CD;
 }
 
-const int CFactoryBase::GetCOST()
-{
-	return COST;
+const int CFactoryBase::GetCOST() {
+    return COST;
 }
 
 //*************************************************
 
-IProducer::~IProducer()
-{}
+IProducer::~IProducer() {}
 
 //************************************************
-CProducer::CProducer()
-{
-	_factory = nullptr;
+CProducer::CProducer() {
+    _factory = nullptr;
 }
 
-CProducer::~CProducer()
-{
+CProducer::~CProducer() {
 
 }
 
 void CProducer::SetFactoryAndPlayer(CPlayer* player, IFactory* produser)
 {
-	_factory = produser;
-	_player = player;
+    _factory = produser;
+    _player = player;
 }
 
-bool CProducer::IsAbleToCreate()
-{
-	int time = clock();
-	time /= CLOCKS_PER_SEC;
-	if ((time > _cd_finish) && (_player->money >= _factory->GetCOST()))
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+bool CProducer::IsAbleToCreate() {
+    int time = clock();
+    time /= CLOCKS_PER_SEC;
+    if ((time > _cd_finish) && (_player->money >= _factory->GetCOST())) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
-CTower* CProducer::Create()
-{
-	if(IsAbleToCreate()) 
-	{
-		ChangeCD();
-		ChangeMoney();
-		return _factory->Create();
-	}
-	else
-	{
-		std::cout << "You can't do that";
-		return nullptr;
-	}
+CTower* CProducer::Create() {
+    if(IsAbleToCreate()){
+        ChangeCD();
+        ChangeMoney();
+        return _factory->Create();
+    }
+    else {
+        std::cout << "You can't do that";
+        return nullptr;
+    }
 }
 
-void CProducer::ChangeMoney()
-{
-	_player->money -= _factory->GetCOST();
+void CProducer::ChangeMoney() {
+    _player->money -= _factory->GetCOST();
 }
 
-void CProducer::ChangeCD()
-{
-	int time = clock();
-	time /= CLOCKS_PER_SEC;
-	_cd_finish = time + _factory->GetCD();
+void CProducer::ChangeCD() {
+
 }

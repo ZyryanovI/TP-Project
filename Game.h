@@ -5,18 +5,18 @@
 
 class CGame {
 private:
-	static CGame* _obj;
-	CGame();
-	~CGame();
+    static CGame* _obj;
+    CGame();
+    ~CGame();
 
 public:
-	std::vector<CPoint*> points;
-	CPlayer player1;
-	CPlayer player2;
+    std::vector<CPoint*> points;
+    CPlayer player1;
+    CPlayer player2;
 
-	CGame(const CGame&) = delete;
-	const CGame& operator=(const CGame&) = delete;
+    CGame(const CGame&) = delete;
+    const CGame& operator=(const CGame&) = delete;
 
-	static CGame* Instance();
-	static void DeleteInstance();
+    static CGame* Instance();
+    static void DeleteInstance();
 };

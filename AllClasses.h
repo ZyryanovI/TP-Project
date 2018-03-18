@@ -1,5 +1,5 @@
 #pragma once
-#include <iostream> //подключил
+#include <iostream> //ГЇГ®Г¤ГЄГ«ГѕГ·ГЁГ«
 class CPoint;
 class CPlayer;
 class CTower;
