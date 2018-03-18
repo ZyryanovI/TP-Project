@@ -1,6 +1,2 @@
 #include "AllClasses.h"
-
-class CPlayer {
-
-};
-
+#include "Player.h"
