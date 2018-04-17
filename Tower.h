@@ -20,6 +20,10 @@ enum CTypeOfComponent {
     COMP_TARGET_SKILL,
 };
 
+/**
+ * \brief Интерфейс компоненты
+ */
+
 class IComponent {
 public:
     virtual CTypeOfComponent GetType() = 0;
@@ -27,12 +31,29 @@ public:
     //virtual void Update(double dt) = 0;
 };
 
+/**
+ * \brief Класс CTower
+ *
+ * Содержит вектор указателей на компаненты
+ *
+ */
+
 class CTower {
 private:
     std::vector<unique_ptr<IComponent> > components;
 public:
+
+	/**
+	 * \brief Функция добавляющая компоненту в components
+	 * @param comp - указатель на компоненту
+	 */
+
     void AddComponent(IComponent* comp);
 };
+
+/**
+ * \brief Интерфейс фабрики
+ */
 
 class IFactory {
 public:
@@ -44,6 +65,10 @@ public:
 
 //------------------------------------------------------
 
+/**
+ * \brief Реализация Фабрики для обычной башни
+ */
+
 class CFactoryNormal : public IFactory {
 private:
     const int HP = 100;
@@ -54,12 +79,31 @@ private:
     const int COST = 10;
 
 public:
+
+	/**
+	 * \brief Возвращает CD
+	 */
+
     int GetCD() const;
+
+    /**
+     * \brief Возвращает COST
+     */
+
     int GetCOST() const;
+
+    /**
+     * \brief Функция Ctreate
+     * @param Указатель на точку и указатель на игрока
+     * @return Указатель на срзданную башню
+     */
 
     virtual CTower* Create(CPoint*, CPlayer*);
 };
 
+/**
+ * \brief Реализация Фабрики для дальнобойной башни
+ */
 
 class CFactoryLongRange : public IFactory {
 private:
@@ -71,12 +115,31 @@ private:
     const int COST = 15;
 
 public:
+
+	/**
+	 * \brief Возвращает CD
+	 */
+
     int GetCD() const;
+
+	/**
+     * \brief Возвращает COST
+     */
+
     int GetCOST() const;
+
+	/**
+     * \brief Функция Ctreate
+     * @param Указатель на точку и указатель на игрока
+     * @return Указатель на срзданную башню
+     */
 
     virtual CTower* Create(CPoint*, CPlayer*);
 };
 
+/**
+ * \brief Реализация Фабрики для защитной башни
+ */
 
 class CFactoryProtective : public IFactory { //what to do with that?
 private:
@@ -85,13 +148,31 @@ private:
     const int COST = 15;
 
 public:
+
+	/**
+	 * \brief Возвращает CD
+	 */
+
     int GetCD() const;
+
+	/**
+     * \brief Возвращает COST
+     */
+
     int GetCOST() const;
+
+	/**
+     * \brief Функция Ctreate
+     * @param Указатель на точку и указатель на игрока
+     * @return Указатель на срзданную башню
+     */
 
     virtual CTower* Create(CPoint*, CPlayer*);
 };
 
-
+/**
+ * \brief Реализация Фабрики для ракетной установки
+ */
 
 class CFactoryMissile : public IFactory {
 private:
@@ -101,12 +182,31 @@ private:
     const int COST = 25;
 
 public:
+
+	/**
+	 * \brief Возвращает CD
+	 */
+
     int GetCD() const;
+
+	/**
+     * \brief Возвращает COST
+     */
+
     int GetCOST() const;
+
+	/**
+     * \brief Функция Ctreate
+     * @param Указатель на точку и указатель на игрока
+     * @return Указатель на срзданную башню
+     */
 
     virtual CTower* Create(CPoint*, CPlayer*);
 };
 
+/**
+ * \brief Реализация Фабрики для башни поддержки
+ */
 
 class CFactorySupport : public IFactory {
 private:
@@ -118,13 +218,31 @@ private:
     const int COST = 15;
 
 public:
+
+	/**
+	 * \brief Возвращает CD
+	 */
+
     int GetCD() const;
+
+	/**
+     * \brief Возвращает COST
+     */
+
     int GetCOST() const;
+
+	/**
+     * \brief Функция Ctreate
+     * @param Указатель на точку и указатель на игрока
+     * @return Указатель на срзданную башню
+     */
 
     virtual CTower* Create(CPoint*, CPlayer*);
 };
 
-
+/**
+ * \brief Реализация Фабрики для мобильной башни
+ */
 
 class CFactoryMoving : public IFactory {
 private:
@@ -138,12 +256,31 @@ private:
     const int COST = 25;
 
 public:
+
+	/**
+	 * \brief Возвращает CD
+	 */
+
     int GetCD() const;
+
+	/**
+     * \brief Возвращает COST
+     */
+
     int GetCOST() const;
+
+	/**
+     * \brief Функция Ctreate
+     * @param Указатель на точку и указатель на игрока
+     * @return Указатель на срзданную башню
+     */
 
     virtual CTower* Create(CPoint*, CPlayer*);
 };
 
+/**
+ * \brief Реализация Фабрики для хилящей башни
+ */
 
 class CFactoryHealer : public IFactory {
 private:
@@ -154,12 +291,31 @@ private:
     const int COST = 20;
 
 public:
+
+	/**
+	 * \brief Возвращает CD
+	 */
+
     int GetCD() const;
+
+	/**
+     * \brief Возвращает COST
+     */
+
     int GetCOST() const;
+
+	/**
+     * \brief Функция Ctreate
+     * @param Указатель на точку и указатель на игрока
+     * @return Указатель на срзданную башню
+     */
 
     virtual CTower* Create(CPoint*, CPlayer*);
 };
 
+/**
+ * \brief Реализация Фабрики для добывающей башни
+ */
 
 class CFactoryEnlarger : public IFactory {
 private:
@@ -169,12 +325,31 @@ private:
     const int COST = 20;
 
 public:
+
+	/**
+	 * \brief Возвращает CD
+	 */
+
     int GetCD() const;
+
+	/**
+     * \brief Возвращает COST
+     */
+
     int GetCOST() const;
+
+	/**
+     * \brief Функция Ctreate
+     * @param Указатель на точку и указатель на игрока
+     * @return Указатель на срзданную башню
+     */
 
     virtual CTower* Create(CPoint*, CPlayer*);
 };
 
+/**
+ * \brief Реализация Фабрики для генератора
+ */
 
 class CFactoryGenerator : public IFactory { //do something with generating
 private:
@@ -184,12 +359,31 @@ private:
     const int COST = 10;
 
 public:
+
+	/**
+	 * \brief Возвращает CD
+	 */
+
     int GetCD() const;
+
+	/**
+     * \brief Возвращает COST
+     */
+
     int GetCOST() const;
+
+	/**
+     * \brief Функция Ctreate
+     * @param Указатель на точку и указатель на игрока
+     * @return Указатель на срзданную башню
+     */
 
     virtual CTower* Create(CPoint*, CPlayer*);
 };
 
+/**
+ * \brief Реализация Фабрики для базы
+ */
 
 class CFactoryBase : public IFactory {
 private:
@@ -201,8 +395,24 @@ private:
     const int COST = 10;
 
 public:
+
+	/**
+	 * \brief Возвращает CD
+	 */
+
     int GetCD() const;
+
+	/**
+     * \brief Возвращает COST
+     */
+
     int GetCOST() const;
+
+	/**
+     * \brief Функция Ctreate
+     * @param Указатель на точку и указатель на игрока
+     * @return Указатель на срзданную башню
+     */
 
     virtual CTower* Create(CPoint*, CPlayer*);
 };

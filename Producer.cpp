@@ -3,6 +3,11 @@
 IProducer::~IProducer() {}
 
 //************************************************
+
+/**
+ * \brief Реализация функций класса CProducer
+ */
+
 CProducer::CProducer() {
 	_factory = nullptr;
 	_player = nullptr;

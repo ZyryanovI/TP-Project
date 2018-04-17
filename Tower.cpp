@@ -13,6 +13,8 @@ void CTower::AddComponent(IComponent* comp) {
 
 //-----------------------------------------------------------------------
 
+
+
 CTower* CFactoryNormal::Create(CPoint* point, CPlayer* player) {
     CTower* tower = new CTower;
 
